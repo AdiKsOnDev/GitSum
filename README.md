@@ -7,15 +7,6 @@ Provides a concise overview of the repository's purpose, features, and usage.
 Saves time by extracting key information from lengthy documentation.
 Improves accessibility by presenting a condensed summary for quick understanding.
 
-## :green_book: Installation
-To use the GitHub Repository Summarizer Chrome Extension, follow these steps:
-
-Clone or download this repository to your local machine.
-Open Google Chrome and type `chrome://extensions` in the address bar.
-Enable the "Developer mode" toggle located in the top right corner of the page.
-Click the "Load unpacked" button and select the folder containing the cloned/downloaded repository.
-The extension should now appear in your list of installed extensions.
-
 ## :scroll: Usage
 Navigate to any GitHub repository that contains a README.md file.
 Click on the extension icon in your browser's toolbar.
@@ -30,6 +21,15 @@ We prioritize the privacy and security of our users. The extension does not coll
 
 ## :heavy_plus_sign: Contributions
 Contributions to the GitHub Repository Summarizer Chrome Extension are welcome! If you have any ideas, bug fixes, or feature enhancements, feel free to submit a pull request or create an issue. Please ensure that your contributions adhere to the repository's guidelines and coding standards.
+
+## :green_book: Installation
+If you are a developer and you wish to contribute/tinker with the extension a bit, for our repository and follow these steps:
+
+Clone or download the repository to your local machine.
+Open Google Chrome and type `chrome://extensions` in the address bar.
+Enable the "Developer mode" toggle located in the top right corner of the page.
+Click the "Load unpacked" button and select the folder containing the cloned/downloaded repository.
+The extension should now appear in your list of installed extensions.
 
 ## License
 The GitHub Repository Summarizer Chrome Extension is licensed under the MIT License. Feel free to modify and distribute the extension while adhering to the license terms.
