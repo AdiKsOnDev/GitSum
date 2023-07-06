@@ -1,0 +1,11 @@
+{
+    "name": "GitSum",
+    "version": "1.0.0",
+    "description": "Summary of a GitHub repo",
+    "manifest_version": 3,
+    "author": "Open Source Contributor",
+    "action":{
+        "default_popup": "src/index.html",
+        "default_title": "Summary"
+    }
+}
