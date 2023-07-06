@@ -17,12 +17,15 @@
     </nav>
 
     <div id="chat-container">
-        <script type="module" src="../scripts/getGitSummary.js"></script>
-        
-        <div id= "main-repo-summary">
-            This is a sample summary 
-            This repository is about eating healthy and staying fit 
-        </div>
+        <div id="message-container"></div>
+        <form id="message-form">
+            <input type="text" id="message-input" placeholder="Type your message">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script type="module" src="../scripts/getGitSummary.js"></script>
+    <script src="../scripts/chat.js"></script>
     </div>
     
 
