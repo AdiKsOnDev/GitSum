@@ -1,0 +1,83 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+
+/* Animations (Keyframes) */
+@keyframes activeLink {
+    0% {
+        border-bottom: 0.2rem solid  transparent;
+    }
+
+    100% {
+        border-bottom: 0.3rem solid  rgb(203, 0, 0);
+    }
+}
+
+body {
+    background-color: #1a222e;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 700px;
+}
+
+.navigation {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+
+    padding: 20px;
+
+    color: white; 
+}
+
+.navigation:hover {
+    background-color: rgb(0, 0, 0);
+}
+
+.active {
+    animation: activeLink 0.75s forwards;
+}
+
+#summary-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+
+    width: 100%;
+    height: 100vh;
+    
+    color: white;
+}
+#main-repo-summary{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: white;
+    color: white;
+}
+#chat-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+
+    width: 100%;
+    height: 100vh;
+    
+    color: white;
+}

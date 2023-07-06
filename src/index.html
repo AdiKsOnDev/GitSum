@@ -3,16 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitSum (Subject To Change- Sample contribution - will be working in liveshare)</title> 
+    <title>GitSum</title> 
+    <!--Chrome Extension for Automatic GitHub Repo Summarizer and QnA Model-->
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
-        <a href="" class="navigation active">Summary</a>
-        <a href="" class="navigation">Settings</a>
-        <a href="" class="navigation">Chat</a>
-        <a href="" class="navigation"></a>
+        <a href="index.html" id = "summary-link" class="navigation active">Summary</a>
+        <a href="chat.html" id = "chat-link" class="navigation">Chat</a>
+        <a href="#" id = "contribute-link" class="navigation">Contribute</a>
+        <a href="#" id = "subscribe-link" class="navigation">Subscribe</a>
+        <a href="settings.html" id = "settings-link" class="navigation">Settings</a>
     </nav>
+
+    <div id="summary-container">
+        <script type="module" src="../scripts/getGitSummary.js"></script>
+        <div id = "main-summary-container">
+        </div>
+    </div>
 </body>
 </html>
