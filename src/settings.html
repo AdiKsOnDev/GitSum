@@ -6,6 +6,61 @@
     <title>GitSum</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        #main_title{
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }   
+        body {
+            background-color: #1a222e;
+            color: #fff;
+        }
+
+        nav {
+            background-color: #1a222e;
+            padding: 10px;
+        }
+
+        .navigation {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .active {
+            font-weight: bold;
+        }
+
+        #summary-container {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            color: rgb(0, 213, 228);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="number"],
+        input[type="checkbox"],
+        input[type="submit"] {
+            margin-top: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(0, 213, 228);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -17,7 +72,33 @@
     </nav>
 
     <div id="summary-container">
-        Under Construction :C
+       
+        <h1 id = "main_title">GitSum Extension Settings</h2>
+            <br>
+            <br>
+        <form>
+            <h3>Summarization Settings</h3>
+            <label for="dailyLimit">Automatically summarize repositories:</label>
+            <input type="checkbox" id="dailyLimit" name="dailyLimit" checked>
+            <br>
+            <br>
+            <h3>Chat Settings</h3>
+            <label for="notification">Receive Chat Notifications:</label>
+            <input type="checkbox" id="notification" name="notification" checked>
+            <br>
+            <br>
+            <h3>Contribution Settings</h3>
+            <label for="contribution">Show Contribution Opportunities:</label>
+            <input type="checkbox" id="contribution" name="contribution" checked>
+            <br>
+            <br>
+            <h3>Privacy Settings</h3>
+            <label for="dataPrivacy">Do Not Store My Data:</label>
+            <input type="checkbox" id="dataPrivacy" name="dataPrivacy">
+            <br>
+            <br>
+            <input type="submit" value="Save Settings">
+        </form>
     </div>
 </body>
 </html>

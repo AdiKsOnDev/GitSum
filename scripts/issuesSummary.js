@@ -99,6 +99,59 @@ async function getIssues(url) {
 }
 
 async function getCompletion(message) {
+  // const options = {
+  //   method: 'POST',
+  //   headers: {
+  //     accept: 'application/json',
+  //     'content-type': 'application/json',
+  //     Authorization: 'Bearer ' + apiKey
+  //   },
+  //   body: JSON.stringify({
+  //     numResults: 1,
+  //     maxTokens: 3000,
+  //     minTokens: 1000,
+  //     temperature: 0.8,
+  //     topP: 1,
+  //     topKReturn: 0,
+  //     frequencyPenalty: {
+  //       scale: 1,
+  //       applyToWhitespaces: true,
+  //       applyToPunctuations: true,
+  //       applyToNumbers: true,
+  //       applyToStopwords: true,
+  //       applyToEmojis: true
+  //     },
+  //     presencePenalty: {
+  //       scale: 0,
+  //       applyToWhitespaces: true,
+  //       applyToPunctuations: true,
+  //       applyToNumbers: true,
+  //       applyToStopwords: true,
+  //       applyToEmojis: true
+  //     },
+  //     countPenalty: {
+  //       scale: 0,
+  //       applyToWhitespaces: true,
+  //       applyToPunctuations: true,
+  //       applyToNumbers: true,
+  //       applyToStopwords: true,
+  //       applyToEmojis: true
+  //     },
+  //     prompt: message + "Using the following GitHub issues list, mention each one as bullet point and how the user can help fix these issues."
+  //   })
+  // };
+
+  // const response = await fetch('https://api.ai21.com/studio/v1/j2-ultra/complete', options);
+  // const { completions } = await response.json();
+
+  // if (completions && completions.length > 0) {
+  //   const completionText = completions[0].data.text;
+  //   return completionText;
+  // } else {  
+  //   throw new Error('No completions generated.');
+  // }
+  let final;
+  let finalText = "";
   const options = {
     method: 'POST',
     headers: {
@@ -108,9 +161,9 @@ async function getCompletion(message) {
     },
     body: JSON.stringify({
       numResults: 1,
-      maxTokens: 3000,
-      minTokens: 1000,
-      temperature: 0.8,
+      maxTokens: 600,
+      minTokens: 0,
+      temperature: 0.6,
       topP: 1,
       topKReturn: 0,
       frequencyPenalty: {
@@ -137,19 +190,16 @@ async function getCompletion(message) {
         applyToStopwords: true,
         applyToEmojis: true
       },
-      prompt: message + "Using the following GitHub issues list, mention each one as bullet point and how the user can help fix these issues."
+      prompt: message + "Using ONLY the above mentioned GitHub issues, mention the title of the issue and then how an open source contributor might help fix these issues in the project"
     })
   };
+  
+  await fetch('https://api.ai21.com/studio/v1/j2-ultra/complete', options)
+    .then(response => response.json())
+    .then(response => final = response)
+    .catch(err => console.error(err));
 
-  const response = await fetch('https://api.ai21.com/studio/v1/j2-ultra/complete', options);
-  const { completions } = await response.json();
-
-  if (completions && completions.length > 0) {
-    const completionText = completions[0].data.text;
-    return completionText;
-  } else {
-    throw new Error('No completions generated.');
-  }
+    return final.completions[0].data.text;
 }
 
 async function run() {
@@ -161,9 +211,10 @@ async function run() {
 
   const ISSUESURL = `https://api.github.com/repos/${owner}/${repoName}/issues`;
   const issues = await getIssues(ISSUESURL);
+
   const completion = await getCompletion(issues);
 
-  document.getElementById("summary-container").innerHTML = completion;
+  document.getElementById("summary-container").innerHTML = completion.replace(/#(\d+)/g, '<br>#$1');
 }
 
 run().catch(error => {
