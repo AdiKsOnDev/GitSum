@@ -48,7 +48,7 @@ function createMessageBubble(message, sender) {
 // To add a computer message
 //   createMessageBubble("I'm an AI assistant here to help!", "computer");
 let messageResponse;
-if (urlSplit.length == 5 && urlSplit[2] == "github.com") {
+if (urlSplit[2] == "github.com") {
     repoName = urlSplit[4];
     messageResponse = "Hello! Ask me any question about the " + repoName + " repository and I will try my best to answer!"
     
@@ -76,7 +76,6 @@ messageForm.addEventListener("submit", function(event) {
 
 async function QnA(message) {
     let final;
-
     let input = await getGitReadme(READMEURL);
     input = input.replace(/:\w+:/g, '');
     let source = input.replace(/[^a-zA-Z0-9'.\n]/g," ")

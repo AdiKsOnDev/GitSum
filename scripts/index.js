@@ -46,7 +46,7 @@ async function summarize() {
 }
 
 function main() {
-	if (urlSplit.length == 5 && urlSplit[2] == "github.com") {
+	if (urlSplit[2] == "github.com") {
 		try {
 			summary = summarize();
 		} catch (error) {
