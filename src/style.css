@@ -75,8 +75,8 @@ nav {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     text-decoration: none;
-
-    width: 100%;
+   
+    width: 80%;
     height: 100vh;
     
     color: white;
@@ -92,21 +92,12 @@ nav {
     font-weight: 400;
 
     width: 80%;
-    height: 70vh;
+    height: 400px;
 
     margin: 30px 0;
-
-    overflow-y: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.2);
 }
 
-#message-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-}
+
 
 #message-form {
     display: flex;
@@ -115,28 +106,111 @@ nav {
 
 #message-input {
     flex-grow: 1;
-    padding: 5px;
+
+    margin-top: 30px;
+
+    padding: 10px;
+
+    width: 300px;
+    height: 20px;
+
     font-size: 16px;
+
     border: none;
+    border-radius: 15px;
+    
     background-color: rgba(255, 255, 255, 0.2);
     color: white;
 }
 
 #message-input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Poppins', sans-serif;
+    font-size: small;
+
+    color: rgb(255, 255, 255);
 }
 
 button[type="submit"] {
-    padding: 5px 10px;
-    background-color: #00d5e4;
+    width: 75px;
+
+    margin-top: 30px;
+    
     border: none;
-    border-radius: 3px;
+    border-radius: 15px;
+
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    color: white;
+    font-size: small;
+
     cursor: pointer;
+
+    color: white;
+    background-color: #00d5e4;
 }
 
 button[type="submit"]:hover {
     background-color: #00c0cf;
+    color: #1a222e;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 11pt;
+    font-weight: 600;
+
+    max-width: 60%;
+
+    padding: 10px;
+
+    border-radius: 15px;
+
+    background-color: #00d5e4;
+    color: white;
+}
+
+.user-message {
+    align-self: flex-end;
+    
+    background-color: #00d5e4;
+}
+
+.computer-message {
+    align-self: flex-start;
+
+    background-color: #25b8c4;
+    color: white;
+}
+
+#message-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    width: 100%;
+
+    overflow-y: scroll;
+}
+
+#message-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+#message-container::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: #e7e7e7;
+    border: 1px solid #cacaca;
+}
+
+#message-container::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #25b8c4;
 }
