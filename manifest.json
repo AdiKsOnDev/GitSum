@@ -10,5 +10,10 @@
     },
     "permissions": [
         "tabs"
-    ]
+    ],
+    "icons": {
+        "128": "128-white-circle.png"
+        
+      }
+      
 }
