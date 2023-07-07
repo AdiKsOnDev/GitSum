@@ -1,5 +1,5 @@
 # :robot: GitSum
-The GitHub Repository Summarizer Chrome Extension is a powerful tool that leverages the capabilities of a Language Model to provide a concise summary of a repository's README.md file. By utilizing OpenAI's Language Model, this extension condenses lengthy project documentation into a brief and informative summary.
+is a powerful tool that leverages the capabilities of a Language Model to provide a concise summary of a repository's README.md file. By utilizing OpenAI's Language Model, this extension condenses lengthy project documentation into a brief and informative summary.
 
 ## :star: Features
 Summarizes the README.md file of any GitHub repository.
