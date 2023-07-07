@@ -200,17 +200,17 @@ button[type="submit"]:hover {
     overflow-y: scroll;
 }
 
-#message-container::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: 10px;
 }
 
-#message-container::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     border-radius: 8px;
     background-color: #e7e7e7;
     border: 1px solid #cacaca;
 }
 
-#message-container::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     border-radius: 8px;
     background-color: #25b8c4;
 }

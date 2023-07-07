@@ -1,14 +1,24 @@
 import { getCurrentURL } from './getCurrentURL.js';
+import { getGitReadme } from './githubAPIRequests.js';
+import { apiKey } from './apiKey.js';
 
-const URL = await getCurrentURL();
-let urlSplit = URL.split("/");
+const CURRENTURL = await getCurrentURL();
+let urlSplit = CURRENTURL.split("/");
 
-let repoName;
+let owner = urlSplit[3];
+let repoName = urlSplit[4];
+
+const URL = `https://raw.githubusercontent.com/${owner}/${repoName}`;
+const READMEURL = URL + '/main/README.md'
+
 let messages = []; 
 
 // Function to create a new message bubble
 function createMessageBubble(message, sender) {
-    messages.push(message);
+    if (sender === "user"){
+        messages.push(message); 
+    }
+   
     const messageContainer = document.getElementById("message-container");
     
     const messageDiv = document.createElement("div");
@@ -23,6 +33,12 @@ function createMessageBubble(message, sender) {
   
     // Scroll to the bottom of the message container
     messageContainer.scrollTop = messageContainer.scrollHeight;
+    if(sender === "user"){
+        
+        QnA(message).then(function(response){
+            createMessageBubble(response, "computer");
+        });
+    }
 }
 
 // Example usage:
@@ -43,17 +59,45 @@ createMessageBubble(messageResponse, "computer");
 
 const messageForm = document.getElementById("message-form");
 messageForm.addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent form submission
+    event.preventDefault(); // Prevent form submission
 
-  // Get the input value
-  const messageInput = document.getElementById("message-input");
-  const message = messageInput.value.trim();
+    // Get the input value
+    const messageInput = document.getElementById("message-input");
+    const message = messageInput.value.trim();
 
-  if (message !== "") {
+    if (message !== "") {
     createMessageBubble(message, "user");
-    
+
 
     // Clear the input field
     messageInput.value = "";
-  }
+    }
 });
+
+async function QnA(message) {
+    let final;
+
+    let input = await getGitReadme(READMEURL);
+    input = input.replace(/:\w+:/g, '');
+    let source = input.replace(/[^a-zA-Z0-9'.\n]/g," ")
+	
+    const options = {
+        method: 'POST',
+        headers: {
+            accept: 'application/json',
+            'content-type': 'application/json',
+            Authorization: 'Bearer ' + apiKey
+        },
+        body: JSON.stringify({
+            context: source, 
+            question: message
+        })
+    };
+      
+    final = await fetch('https://api.ai21.com/studio/v1/experimental/answer', options)
+            .then(response => response.json())
+            .then(response => {return response;})
+            .catch(err => console.error(err));
+    
+    return final.answer;
+}

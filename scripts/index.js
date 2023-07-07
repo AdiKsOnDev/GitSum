@@ -1,11 +1,9 @@
 import { getCurrentURL } from './getCurrentURL.js';
 import { getGitReadme } from './githubAPIRequests.js';
-
+import { apiKey } from './apiKey.js';
 
 let currentUrlString = await getCurrentURL();
 let urlSplit = currentUrlString.split("/");
-
-const apiKey = "0JPg17Nn6WcbMB2cok12rcZ9FD1Rr3RM";
 
 let summary = ""
 
@@ -29,13 +27,13 @@ async function summarize() {
     const options = {
 		method: 'POST',
 		headers: {
-		accept: 'application/json',
-		'content-type': 'application/json',
-		Authorization: 'Bearer ' + apiKey
+			accept: 'application/json',
+			'content-type': 'application/json',
+			Authorization: 'Bearer ' + apiKey
 		},
 		body: JSON.stringify({
-		source: source,
-		sourceType: 'TEXT'
+			source: source,
+			sourceType: 'TEXT'
 		})
     };
   
@@ -45,7 +43,7 @@ async function summarize() {
 		.catch(err => console.error(err));
     
     return final.summary;
-  }
+}
 
 function main() {
 	if (urlSplit.length == 5 && urlSplit[2] == "github.com") {
