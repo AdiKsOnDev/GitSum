@@ -41,12 +41,6 @@ function createMessageBubble(message, sender) {
     }
 }
 
-// Example usage:
-// To add a user message
-//   createMessageBubble("Hello, how can I assist you?", "user");
-
-// To add a computer message
-//   createMessageBubble("I'm an AI assistant here to help!", "computer");
 let messageResponse;
 if (urlSplit[2] == "github.com") {
     repoName = urlSplit[4];
