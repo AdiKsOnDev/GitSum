@@ -1,5 +1,5 @@
 # :robot: GitSum
-is a powerful tool that leverages the capabilities of a Language Model to provide a concise summary of a repository's README.md file. By utilizing OpenAI's Language Model, this extension condenses lengthy project documentation into a brief and informative summary.
+is a powerful tool that leverages the capabilities of a Language Model to provide a concise summary of a repository's README.md file. By utilizing LabLab AI's Jurassic-2-Ultra and LabLab AI's Task Specific API'S, this extension condenses lengthy project documentation into a brief and informative summary.
 
 ## :star: Features
 Summarizes the README.md file of any GitHub repository.
@@ -14,7 +14,7 @@ The extension will analyze the `README.md` file and generate a summary.
 The summary will be displayed in a popup window, providing a concise overview of the repository.
 
 ## :grey_question: How It Works
-The GitHub Repository Summarizer Chrome Extension utilizes a Language Model to analyze the content of the `README.md` file. It leverages OpenAI's powerful Language Model capabilities to extract the most relevant information from the file and generate a summary. The extension communicates with an external server to process the data and retrieve the summary in real time.
+The GitHub Repository Summarizer Chrome Extension utilizes a Language Model to analyze the content of the `README.md` file. It leverages LabLab AI's Jurassic-2-Ultra and LabLab AI's Task Specific API'S capabilities to extract the most relevant information from the file and generate a summary. The extension communicates with an external server to process the data and retrieve the summary in real time.
 
 ## :warning: Privacy and Data Security
 We prioritize the privacy and security of our users. The extension does not collect or store any personal or sensitive information. It solely focuses on extracting information from the README.md file for the purpose of generating a summary. No user-specific data is transmitted or stored on our servers.
