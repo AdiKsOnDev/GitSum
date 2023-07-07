@@ -13,10 +13,6 @@ let repoName = urlSplit[4];
 const URL = `https://raw.githubusercontent.com/${owner}/${repoName}`;
 const READMEURL = URL + '/main/README.md'
 
-// const HEADERS = {
-    // 'Accept': 'application/vnd.github.v3+json',
-// };
-
 async function summarize() {
     let final;
 
