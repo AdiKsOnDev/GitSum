@@ -9,7 +9,7 @@ let owner = urlSplit[3];
 let repoName = urlSplit[4];
 
 const URL = `https://raw.githubusercontent.com/${owner}/${repoName}`;
-const READMEURL = URL + '/main/README.md'
+const READMEURL = URL + '/main/README.md';
 
 let messages = []; 
 
@@ -18,7 +18,7 @@ function createMessageBubble(message, sender) {
     if (sender === "user"){
         messages.push(message); 
     }
-   
+
     const messageContainer = document.getElementById("message-container");
     
     const messageDiv = document.createElement("div");
@@ -30,7 +30,7 @@ function createMessageBubble(message, sender) {
     
     messageDiv.appendChild(messageBubbleDiv);
     messageContainer.appendChild(messageDiv);
-  
+
     // Scroll to the bottom of the message container
     messageContainer.scrollTop = messageContainer.scrollHeight;
     if(sender === "user"){
@@ -86,7 +86,7 @@ async function QnA(message) {
             question: message
         })
     };
-      
+
     final = await fetch('https://api.ai21.com/studio/v1/experimental/answer', options)
             .then(response => response.json())
             .then(response => {return response;})
